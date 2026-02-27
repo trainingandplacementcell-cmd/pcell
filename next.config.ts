@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
+  // Removed static export mode to enable API routes and SSR
   images: {
     unoptimized: true,
   },
