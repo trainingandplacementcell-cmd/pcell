@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "name": "pcell-kappa",
+  "builds": [{ "src": "next.config.js", "use": "@vercel/next" }],
+  "routes": [],
+  "env": {
+    "NEXT_PUBLIC_API_BASE": "https://api.example.com"
+  },
+  "deployments": {
+    "production": {
+      "env": {
+        "NODE_OPTIONS": "--max-old-space-size=2048"
+      }
+    }
+  }
+}

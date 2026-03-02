@@ -1,23 +1,24 @@
 "use client";
 
-import type React from "react";
+ import type React from "react";
+ import Image from 'next/image';
 
 import { useState, useEffect, useRef } from "react";
 
-import SmartSimpleBrilliant from "../components/smart-simple-brilliant";
+// import SmartSimpleBrilliant from "../components/smart-simple-brilliant";
 import YourWorkInSync from "../components/your-work-in-sync";
 import EffortlessIntegration from "../components/effortless-integration-updated";
-import NumbersThatSpeak from "../components/numbers-that-speak";
+// import NumbersThatSpeak from "../components/numbers-that-speak";
 import DocumentationSection from "../components/documentation-section";
-import PricingSection from "../components/pricing-section";
+// import PricingSection from "../components/pricing-section";
 import CTASection from "../components/cta-section";
 import FAQSection from "../components/faq-section";
 
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+// import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
-import DefaultSwapy from "../components/ui/DefaultSwapy";
+// import DefaultSwapy from "../components/ui/DefaultSwapy";
 import PlacementInternshipBarChart from "../components/heroCharts";
 import PlacementInternshipPieChart from "../components/heroChartstwo";
 
@@ -182,7 +183,7 @@ export default function LandingPage() {
 
                 <div className="absolute top-[232px] sm:top-[248px] md:top-[264px] lg:top-[320px] left-1/2 transform -translate-x-1/2 z-0 pointer-events-none">
                   <img
-                    src="/mask-group-pattern.svg"
+                    // src="/mask-group-pattern.svg"
                     alt=""
                     className="w-[936px] sm:w-[1404px] md:w-[2106px] lg:w-[2808px] h-auto opacity-30 sm:opacity-40 md:opacity-50 mix-blend-multiply"
                     style={{
@@ -206,29 +207,15 @@ export default function LandingPage() {
                                 : "opacity-0 scale-95 blur-sm"
                             }`}
                           >
-                            <img
-                              src="/home/home1.png"
+                            <Image
+                              src="/home/home1.avif"
                               alt="Schedules Dashboard - Customer Subscription Management"
-                              className="w-full h-full object-contain "
+                              fill
+                              style={{ objectFit: 'contain' }}
                             />
                           </div>
 
                           {/* Product Image 2 - Data to insights */}
-                          <div
-                            className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                              activeCard === 1
-                                ? "opacity-100 scale-100 blur-0"
-                                : "opacity-0 scale-95 blur-sm"
-                            }`}
-                          >
-                            <img
-                              src="/home/home3.png"
-                              alt="Analytics Dashboard"
-                              className="w-full h-full object-contain"
-                            />
-                          </div>
-
-                          {/* Product Image 3 - Data visualization */}
                           <div
                             className={`absolute inset-0 transition-all duration-500 ease-in-out ${
                               activeCard === 2
@@ -236,10 +223,27 @@ export default function LandingPage() {
                                 : "opacity-0 scale-95 blur-sm"
                             }`}
                           >
-                            <img
-                              src="/home/home2.png"
+                            <Image
+                              src="/home/home2.avif"
+                              alt="Analytics Dashboard"
+                              fill
+                              style={{ objectFit: 'contain' }}
+                            />
+                          </div>
+
+                          {/* Product Image 3 - Data visualization */}
+                          <div
+                            className={`absolute inset-0 transition-all duration-500 ease-in-out ${
+                              activeCard === 1
+                                ? "opacity-100 scale-100 blur-0"
+                                : "opacity-0 scale-95 blur-sm"
+                            }`}
+                          >
+                            <Image
+                              src="/home/home3.avif"
                               alt="Data Visualization Dashboard"
-                              className="w-full h-full object-contain" // Changed from object-cover to object-contain to preserve landscape aspect ratio
+                              fill
+                              style={{ objectFit: 'contain' }}
                             />
                           </div>
                         </div>
@@ -609,13 +613,26 @@ export default function LandingPage() {
                             ₹3.75 LPA — consistent placements across domains.
                           </p>
                         </div>
-                        <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex items-center justify-center overflow-hidden">
-                
-                          <img
-                            src="/home/placement.webp"
-                            alt="Placement"
-                            className="w-full h-full object-contain"
-                          />
+                        <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden items-center justify-center relative">
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <Image
+                              src="/home/placement.avif"
+                              alt="Placement"
+                              fill
+                              style={{ objectFit: 'contain' }}
+                            />
+                          </div>
+                          {/* Gradient mask for soft bottom edge */}
+                          {/* <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F7F5F3] to-transparent pointer-events-none"></div> */}
+                          {/* Fallback content if component doesn't render */}
+                          <div className="absolute inset-0 flex items-center justify-center opacity-20 hidden">
+                            <div className="flex flex-col items-center gap-2 p-4">
+                              <div className="w-3/4 h-full bg-green-500 rounded-full"></div>
+                            </div>
+                            <div className="text-sm text-green-600">
+                              Growth Rate
+                            </div>
+                          </div>
                         </div>
                       </div>
 
@@ -681,13 +698,14 @@ export default function LandingPage() {
                                 COMPITO'24.
                               </p>
                         </div>
-                        <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden items-center justify-center relative">
+                          <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden items-center justify-center relative">
                           <div className="absolute inset-0 flex items-center justify-center">
-                             <img
-                            src="/home/traning.webp"
-                            alt="traning"
-                            className="w-full h-full object-cover"
-                          />
+                            <Image
+                              src="/home/traning.avif"
+                              alt="traning"
+                              fill
+                              style={{ objectFit: 'cover' }}
+                            />
                           </div>
                           {/* Gradient mask for soft bottom edge */}
                           {/* <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F7F5F3] to-transparent pointer-events-none"></div> */}

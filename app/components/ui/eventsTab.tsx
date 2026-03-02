@@ -1,6 +1,7 @@
 "use client";
 
 import { Tabs } from "../tabs";
+import NextImageCompat from '../../libs/NextImageCompat';
 
 export function TabsDemo() {
   const Tag = ({ children }: { children: React.ReactNode }) => (
@@ -30,26 +31,12 @@ export function TabsDemo() {
           </div>
           <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6">
             <div className="bg-white rounded-lg shadow p-3 sm:p-4 flex-1">
-              <img
-                src="/event/prospect1.jpeg"
-                alt="PROSPECT'25"
-                className="mb-2 rounded w-full h-32 sm:h-40 object-cover"
-                onError={(e) => {
-                  (e.currentTarget.style.display = "none");
-                }}
-              />
+              <NextImageCompat src="/event/prospect1.jpeg" alt="PROSPECT'25" width={800} height={520} className="mb-2 rounded w-full object-cover" />
               <h3 className="font-semibold text-base sm:text-lg mb-1">PROSPECT'25</h3>
               <p className="text-xs sm:text-sm text-[#605A57]">Flagship career fair connecting students with recruiters, internships, and placement pathways.</p>
             </div>
             <div className="bg-white rounded-lg shadow p-3 sm:p-4 flex-1">
-              <img
-                src="/event/compito1.png"
-                alt="COMPITO'24"
-                className="mb-2 rounded w-full h-32 sm:h-40 object-cover justify-center"
-                onError={(e) => {
-                  (e.currentTarget.style.display = "none");
-                }}
-              />
+              <NextImageCompat src="/event/compito1.png" alt="COMPITO'24" width={800} height={520} className="mb-2 rounded w-full object-cover" />
               <h3 className="font-semibold text-base sm:text-lg mb-1">COMPITO'24</h3>
               <p className="text-xs sm:text-sm text-[#605A57]">Student engagement drive focused on skills, internships, and career readiness initiatives.</p>
             </div>
@@ -76,26 +63,13 @@ export function TabsDemo() {
           </div>
           <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6">
             <div className="bg-white rounded-lg shadow p-3 sm:p-4 flex-1">
-              <img
-                src="/event/seminar1.jpeg"
-                alt="How to Ace Interviews"
-                className="mb-2 rounded w-full h-32 sm:h-40 object-cover"
-                onError={(e) => {
-                  (e.currentTarget.style.display = "none");
-                }}
-              />
+              {/* image */}
+              <NextImageCompat src="/event/seminar1.jpeg" alt="How to Ace Interviews" width={800} height={520} className="mb-2 rounded w-full object-cover" />
               <h3 className="font-semibold text-base sm:text-lg mb-1">How to Ace Interviews</h3>
               <p className="text-xs sm:text-sm text-[#605A57]">Actionable strategies on interviews, resume screening, and professional communication.</p>
             </div>
             <div className="bg-white rounded-lg shadow p-3 sm:p-4 flex-1">
-              <img
-                src="/event/seminar2.webp"
-                alt="UPES Seminar"
-                className="mb-2 rounded w-full h-32 sm:h-40 object-cover"
-                onError={(e) => {
-                  (e.currentTarget.style.display = "none");
-                }}
-              />
+              <NextImageCompat src="/event/seminar2.webp" alt="UPES Seminar" width={800} height={520} className="mb-2 rounded w-full object-cover" />
               <h3 className="font-semibold text-base sm:text-lg mb-1">UPES Seminar</h3>
               <p className="text-xs sm:text-sm text-[#605A57]">Career orientation session highlighting emerging opportunities and skill requirements.</p>
             </div>
@@ -123,26 +97,12 @@ export function TabsDemo() {
           </div>
           <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6">
             <div className="bg-white rounded-lg shadow p-3 sm:p-4 flex-1">
-              <img
-                src="/event/workshop1.png"
-                alt="ReactJS Workshop"
-                className="mb-2 rounded w-full h-32 sm:h-40 object-cover"
-                onError={(e) => {
-                  (e.currentTarget.style.display = "none");
-                }}
-              />
+              <NextImageCompat src="/event/workshop1.png" alt="ReactJS Workshop" width={800} height={520} className="mb-2 rounded w-full object-cover" />
               <h3 className="font-semibold text-base sm:text-lg mb-1">Workshop</h3>
               <p className="text-xs sm:text-sm text-[#605A57]">Skill workshop to strengthen technical profile and project readiness for internships.</p>
             </div>
             <div className="bg-white rounded-lg shadow p-3 sm:p-4 flex-1">
-              <img
-                src="/event/workshop2.png"
-                alt="Leadership Training"
-                className="mb-2 rounded w-full h-32 sm:h-40 object-cover"
-                onError={(e) => {
-                  (e.currentTarget.style.display = "none");
-                }}
-              />
+              <NextImageCompat src="/event/workshop2.png" alt="Leadership Training" width={800} height={520} className="mb-2 rounded w-full object-cover" />
               <h3 className="font-semibold text-base sm:text-lg mb-1">Leadership Training</h3>
               <p className="text-xs sm:text-sm text-[#605A57]">Training to improve confidence, teamwork, and workplace professionalism.</p>
             </div>
@@ -169,26 +129,12 @@ export function TabsDemo() {
           </div>
           <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6">
             <div className="bg-white rounded-lg shadow p-3 sm:p-4 flex-1">
-              <img
-                src="/event/drive1.png"
-                alt="Summer Internship Drive"
-                className="mb-2 rounded w-full h-32 sm:h-40 object-cover"
-                onError={(e) => {
-                  (e.currentTarget.style.display = "none");
-                }}
-              />
+              <NextImageCompat src="/event/drive1.png" alt="Summer Internship Drive" width={800} height={520} className="mb-2 rounded w-full object-cover" />
               <h3 className="font-semibold text-base sm:text-lg mb-1">Summer Internship Drive</h3>
               <p className="text-xs sm:text-sm text-[#605A57]">Internship opportunities with partner organizations across domains and roles.</p>
             </div>
             <div className="bg-white rounded-lg shadow p-3 sm:p-4 flex-1">
-              <img
-                src="/event/drive2.jpeg"
-                alt="Annual Job Fair"
-                className="mb-2 rounded w-full h-32 sm:h-40 object-cover"
-                onError={(e) => {
-                  (e.currentTarget.style.display = "none");
-                }}
-              />
+              <NextImageCompat src="/event/drive2.jpeg" alt="Annual Job Fair" width={800} height={520} className="mb-2 rounded w-full object-cover" />
               <h3 className="font-semibold text-base sm:text-lg mb-1">Annual Job Fair</h3>
               <p className="text-xs sm:text-sm text-[#605A57]">Campus opportunity fair enabling recruiter-student interaction and drive participation.</p>
             </div>

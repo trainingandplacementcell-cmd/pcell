@@ -14,8 +14,8 @@ export default function Footer() {
             </div>
             <span className="font-semibold">SLC</span>
           </div>
-          <p className="text-gray-400 text-xs">
-            © copyright Placement Cell SLC 2025. All rights reserved.
+          <p className="text-gray-500 text-xs">
+            © copyright Designed and Developed by Hardik Jain <br /> Bsc CS @ Shyam Lal College, University of Delhi. All rights reserved.
           </p>
         </div>
 

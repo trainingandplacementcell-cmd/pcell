@@ -131,7 +131,7 @@ export function GlassmorphismNav() {
                     className="w-full h-full object-cover rounded-full"
                   />
                   <Image
-                    src="/shyamlal.png"
+                    src="/shyamlal.avif"
                     alt="Cliste"
                     width={50}
                     height={60}

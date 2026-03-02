@@ -6,6 +6,8 @@ import { GlassmorphismNav } from "./components/glassmorphism-nav";
 import Script from "next/script";
 import { Yrsa } from "next/font/google";
 import Seo from "./components/Seo";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
 
 
 const geistSans = Geist({
@@ -45,7 +47,7 @@ export default function RootLayout({
           <div
             className="absolute inset-0 opacity-[0.10] "
             style={{
-              backgroundImage: "url(/slccutout.png)",
+              backgroundImage: "url(/slccutout.avif)",
               backgroundRepeat: "cover",
               backgroundPosition: "top left",
               backgroundSize: "cover",
@@ -59,6 +61,8 @@ export default function RootLayout({
           <Seo />
           <main className="flex-1 w-full">{children}</main>
           <Footer />
+          <SpeedInsights/>
+          <Analytics/>
         </div>
 
         <Script

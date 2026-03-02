@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from 'next/image';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -11,7 +12,7 @@ const teachers = [
   {
     name: "Dr. Varun Bhandari",
     role: "Convener",
-    image: "/teachers/Varun.jpeg",
+    image: "/teachers/varun.jpeg",
     about:
       "A finance expert with a Ph.D. from Delhi School of Economics, Dr. Bhandari specializes in Corporate Governance and Green Investing. An internationally recognized researcher, he bridges advanced financial research with industry practice and, as TPC Convenor, creates high-impact career opportunities for SLC students.",
   },
@@ -357,13 +358,9 @@ export default function Convener() {
           {/* RIGHT — Visual anchor */}
           <div className="hidden lg:block">
             <div className="h-[420px] w-full rounded-2xl bg-gray-200 flex items-center justify-center">
-              <span className="text-gray-400 text-sm">
-                <img
-                  src="team.png"
-                  alt="none"
-                  className=" w-full h-full px-5 "
-                />
-              </span>
+              <div className="relative w-full h-full px-5">
+                <Image src="/team.png" alt="Team" fill style={{ objectFit: 'contain', padding: '20px' }} />
+              </div>
             </div>
           </div>
         </div>

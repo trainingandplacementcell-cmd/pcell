@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import NextImageCompat from '../libs/NextImageCompat';
 
 export type LogoItem =
   | {
@@ -348,7 +349,11 @@ export const LogoLoop = React.memo<LogoLoopProps>(
           </span>
         ) : (
           <div className="relative group/logo">
-            <img
+            <NextImageCompat
+              src={(item as any).src}
+              alt={(item as any).alt ?? ''}
+              width={100}
+              height={28}
               className={cx(
                 'h-[var(--logoloop-logoHeight)] w-auto block object-contain',
                 '[-webkit-user-drag:none] pointer-events-none',
@@ -358,13 +363,6 @@ export const LogoLoop = React.memo<LogoLoopProps>(
                 grayscaleOnHover && 'grayscale hover:grayscale-0',
                 scaleOnHover && 'group-hover/logo:scale-110'
               )}
-              src={(item as any).src}
-              srcSet={(item as any).srcSet}
-              sizes={(item as any).sizes}
-              width={(item as any).width}
-              height={(item as any).height}
-              alt={(item as any).alt ?? ''}
-              title={(item as any).title}
               loading="lazy"
               decoding="async"
               draggable={false}

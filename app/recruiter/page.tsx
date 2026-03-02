@@ -14,6 +14,7 @@ import {
   MapPin,
   Clock,
 } from "lucide-react";
+import NextImageCompat from "../libs/NextImageCompat";
 
 const imageLogos = [
   { src: "/logo/4.png", alt: "Company 4", href: "#", title: "Company 4" },
@@ -176,13 +177,14 @@ export default function RecruitmentPage() {
               </div>
             </div>
 
-            {/* Right Image */}
+            {/* Right Image (optimized) */}
             <div className="order-1 lg:order-2 relative">
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
-                <img
+              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl w-full h-[300px] sm:h-[400px] lg:h-[500px]">
+                <NextImageCompat
                   src="/recurit/rec2.webp"
                   alt="Shyam Lal College Campus"
-                  className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#37322F]/30 to-transparent"></div>
               </div>

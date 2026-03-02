@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from 'next/image';
 import { TabsDemo } from "../components/ui/eventsTab";
 
 export default function Page() {
@@ -68,22 +69,22 @@ export default function Page() {
                       {
                         label: "Event Photo 1",
                         hint: "PROSPECT / Seminar",
-                        src: "/event/event1.jpg",
+                        src: "/event/event1.avif",
                       },
                       {
                         label: "Event Photo 2",
                         hint: "Workshop",
-                        src: "/event/event2.jpg",
+                        src: "/event/event2.avif",
                       },
                       {
                         label: "Event Photo 3",
                         hint: "Guest Session",
-                        src: "/event/event3.jpg",
+                        src: "/event/event3.avif",
                       },
                       {
                         label: "Event Photo 4",
                         hint: "Drive / Fair",
-                        src: "/event/event4.webp",
+                        src: "/event/event4.avif",
                       },
                     ].map((ph) => (
                       <div
@@ -92,16 +93,13 @@ export default function Page() {
                       >
                         <div className="absolute inset-0 bg-gradient-to-br from-[#F7F1E8] via-white to-[#F7F1E8]" />
 
-                        <img
-                          src={ph.src}
-                          alt={ph.label}
-                          className="absolute inset-0 w-full h-full object-cover"
-                          loading="lazy"
-                          onError={(e) => {
-                            const target = e.currentTarget as HTMLImageElement;
-                            target.style.display = "none";
-                          }}
-                        />
+                            <Image
+                              src={ph.src}
+                              alt={ph.label}
+                              fill
+                              style={{ objectFit: 'cover' }}
+                              loading="lazy"
+                            />
 
                         {/* Fallback overlay (shows nicely even if images aren't added yet) */}
                         {/* <div className="absolute inset-0 grid place-items-center p-2">
