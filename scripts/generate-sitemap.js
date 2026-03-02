@@ -7,9 +7,11 @@ const ROOT = path.resolve(__dirname, '..');
 const APP_DIR = path.join(ROOT, 'app');
 const PUBLIC_SITEMAP = path.join(ROOT, 'public', 'sitemap.xml');
 
-const SITE_BASE = process.env.SITE_BASE_URL || process.env.NEXT_PUBLIC_SITE_BASE_URL || '';
+let SITE_BASE = process.env.SITE_BASE_URL || process.env.NEXT_PUBLIC_SITE_BASE_URL || '';
+// Fallback to production domain if not provided (for production-ready defaults)
 if (!SITE_BASE) {
-  console.warn('Warning: SITE_BASE_URL not set. Sitemap URLs will be relative.');
+  SITE_BASE = 'https://pcell-kappa.vercel.app';
+  console.warn(`SITE_BASE_URL not set. Falling back to production domain: ${SITE_BASE}`);
 }
 
 function walk(dir) {
@@ -36,11 +38,29 @@ function walk(dir) {
 function buildXml(urls) {
   const now = new Date().toISOString();
   const base = SITE_BASE.endsWith('/') ? SITE_BASE.slice(0, -1) : SITE_BASE;
+  // Derive additional metadata for SEO: changefreq and priority
+  const routeMeta = (route) => {
+    // Normalize route for matching
+    const r = route.endsWith('/') && route.length > 1 ? route.slice(0, -1) : route;
+    switch (r) {
+      case '/': return { changefreq: 'daily', priority: '1.0' };
+      case '/about':
+      case '/events':
+      case '/drive':
+      case '/team':
+      case '/recruiter':
+        return { changefreq: 'weekly', priority: '0.8' };
+      default:
+        // Admin-like or other pages
+        return { changefreq: 'monthly', priority: '0.5' };
+    }
+  };
   const locs = urls
     .map(u => {
       // Ensure root maps to base + '/'
       const loc = base ? base + u : u;
-      return `<url><loc>${loc}</loc><lastmod>${now}</lastmod></url>`;
+      const meta = routeMeta(u);
+      return `<url><loc>${loc}</loc><lastmod>${now}</lastmod><changefreq>${meta.changefreq}</changefreq><priority>${meta.priority}</priority></url>`;
     })
     .join('\n');
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${locs}\n</urlset>`;

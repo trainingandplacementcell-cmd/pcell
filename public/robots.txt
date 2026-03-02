@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /admin/login
+Disallow: /api/
+Disallow: /auth/
+Disallow: /private/
+Sitemap: https://pcell-kappa.vercel.app/sitemap.xml
